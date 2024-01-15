@@ -1,12 +1,5 @@
-function(displayMovie){
+function displayMovie() {}
+function displayActor() {}
+function displayError() {}
 
-}
-function(displayActor){
-
-}
-function(displayError){
-
-}
-
-
-export{displayMovie, displayActor, displayError}
+export { displayMovie, displayActor, displayError };
