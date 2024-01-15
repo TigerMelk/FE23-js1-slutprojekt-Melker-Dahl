@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script type="module" defer src="./main.js"></script>
+    <title>TMDB</title>
+  </head>
+  <body>
+    <header>
+      <h1>titel</h1>
+      <nav>
+        <div>
+          <form>
+            <input
+              type="text"
+              id="textInput"
+              placeholder="search for movie or show"
+              required
+            />
+            <input
+              type="radio"
+              name="movieOrPerson"
+              value="movie"
+              id="radioMovie"
+              checked
+            />
+            <label for="radioMovie">Movie</label>
+            <input
+              type="radio"
+              name="movieOrPerson"
+              value="person"
+              id="radioPerson"
+            />
+            <label for="radioPerson">Actor</label>
+            <button type="submit">Search</button>
+            <button type="click">Top Rated</button>
+            <button type="click">Most Popular</button>
+          </form>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div id="mainContainer"></div>
+    </main>
+    <footer></footer>
+  </body>
+</html>
