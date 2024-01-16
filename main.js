@@ -1,5 +1,12 @@
 import { fetchMovie } from "./modules/fetch.js";
-import { displayMovie, displayActor, displayError } from "./modules/display.js";
+import {
+  displayMovie,
+  displayActor,
+  topRated,
+  displayError,
+} from "./modules/display.js";
+const topRatedBtn = document.querySelector("#topRated");
+const mostPopularBtn = document.querySelector("#mostPopular");
 const formEl = document.querySelector("form");
 console.log(fetchMovie);
 formEl.addEventListener("submit", (event) => {
@@ -17,5 +24,12 @@ formEl.addEventListener("submit", (event) => {
   console.log(userInput);
   console.log(searchType);
   console.log(fetchMovie);
+  console.log(searchType);
   formEl.reset();
+});
+
+topRatedBtn.addEventListener("click", (event) => {
+  fetchMovie("Top Rated").then(topRated);
+  console.log(event);
+  event.preventDefault();
 });
