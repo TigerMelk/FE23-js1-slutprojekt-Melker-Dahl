@@ -6,7 +6,6 @@ const imgBackdropSize = "w400/";
 
 function displayMovie(movie) {
   for (const movieList of movie.results) {
-    console.log(movieList);
     const movieCardDiv = document.createElement("div");
     createAndAppendEl(
       "img",
@@ -77,7 +76,17 @@ function displayActor(actor) {
     mainContainer.append(movieCardDiv);
   }
 }
-function displayError() {}
+function displayError(error) {
+  mainContainer.innerHTML = "";
+  const errorEl = document.createElement("h1");
+  if (error === "No result found") {
+    errorEl = error + "Please try again..";
+  } else {
+    errorEl.innerText = "Somethings wrong, I can feel it";
+  }
+  console.log(displayError);
+  mainContainer.append("errorEl");
+}
 
 function createAndAppendEl(type, content, container) {
   const element = document.createElement(type);

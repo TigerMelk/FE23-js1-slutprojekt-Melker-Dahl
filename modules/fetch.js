@@ -26,8 +26,7 @@ async function fetchMovie(searchType, userInput) {
     return movieData;
   } else if (movieData.result.length == 0) {
     throw "No result found";
-  } else {
-    response.status === 404;
+  } else if (response.status === 404) {
     throw 404;
   }
 }

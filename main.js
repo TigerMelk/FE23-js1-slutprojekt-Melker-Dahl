@@ -1,4 +1,3 @@
-import { fetchMovie } from "./modules/fetch.js";
 import {
   displayMovie,
   displayActor,
@@ -6,11 +5,11 @@ import {
   mostPop,
   displayError,
 } from "./modules/display.js";
+import { fetchMovie } from "./modules/fetch.js";
 const topRatedBtn = document.querySelector("#topRated");
 const mostPopularBtn = document.querySelector("#mostPopular");
 const formEl = document.querySelector("form");
-console.log(fetchMovie);
-
+fetchMovie("Top Rated").then(topRated).catch(displayError);
 // !
 formEl.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -21,16 +20,15 @@ formEl.addEventListener("submit", (event) => {
     'input[type="radio"]:checked'
   ).value;
 
-  if (searchType == "Movie") {
+  if (searchType === "Movie") {
     fetchMovie(searchType, userInput).then(displayMovie).catch(displayError);
-  } else if (searchType == "Person") {
+  } else if (searchType === "Person") {
     fetchMovie(searchType, userInput).then(displayActor).catch(displayError);
   }
+  formEl.reset();
   console.log(userInput);
   console.log(searchType);
-  console.log(fetchMovie);
-  console.log(searchType);
-  formEl.reset();
+  console.log(fetchMovie());
 });
 // !
 topRatedBtn.addEventListener("click", (event) => {
@@ -39,7 +37,8 @@ topRatedBtn.addEventListener("click", (event) => {
   mainContainer.innerHTML = "";
 
   fetchMovie("Top Rated").then(topRated).catch(displayError);
-  console.log(event);
+  console.log(fetchMovie());
+
   formEl.reset();
 });
 
