@@ -5,7 +5,7 @@ const imgBase = `https://image.tmdb.org/t/p/`;
 const imgBackdropSize = "w400/";
 
 function displayMovie(movie) {
-  for (const movieList of movie.result) {
+  for (const movieList of movie.results) {
     console.log(movieList);
     const movieCardDiv = document.createElement("div");
     createAndAppendEl(
@@ -23,6 +23,11 @@ function displayMovie(movie) {
 function topRated(movie) {
   for (const topRatedMovie of movie.results.splice(10)) {
     const movieCardDiv = document.createElement("div");
+    createAndAppendEl(
+      "img",
+      imgBase + imgBackdropSize + topRatedMovie.poster_path,
+      movieCardDiv
+    );
     createAndAppendEl("h2", topRatedMovie.title, movieCardDiv);
     createAndAppendEl("p", topRatedMovie.release_date, movieCardDiv);
     createAndAppendEl("p", topRatedMovie.overview, movieCardDiv);

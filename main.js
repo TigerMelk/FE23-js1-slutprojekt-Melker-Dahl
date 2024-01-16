@@ -9,8 +9,12 @@ const topRatedBtn = document.querySelector("#topRated");
 const mostPopularBtn = document.querySelector("#mostPopular");
 const formEl = document.querySelector("form");
 console.log(fetchMovie);
+
+// !
 formEl.addEventListener("submit", (event) => {
   event.preventDefault();
+  mainContainer.innerHTML = "";
+
   const userInput = document.querySelector("#textInput").value;
   const searchType = document.querySelector(
     'input[type="radio"]:checked'
@@ -27,9 +31,13 @@ formEl.addEventListener("submit", (event) => {
   console.log(searchType);
   formEl.reset();
 });
-
+// !
 topRatedBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  mainContainer.innerHTML = "";
+
   fetchMovie("Top Rated").then(topRated);
   console.log(event);
-  event.preventDefault();
+  formEl.reset();
 });
