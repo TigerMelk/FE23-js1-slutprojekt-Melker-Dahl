@@ -35,8 +35,48 @@ function topRated(movie) {
     mainContainer.append(movieCardDiv);
   }
 }
+function mostPop(movie) {
+  for (const mostPopMovie of movie.results.splice(10)) {
+    const movieCardDiv = document.createElement("div");
+    createAndAppendEl(
+      "img",
+      imgBase + imgBackdropSize + mostPopMovie.poster_path,
+      movieCardDiv
+    );
+    createAndAppendEl("h2", mostPopMovie.title, movieCardDiv);
+    createAndAppendEl("p", mostPopMovie.release_date, movieCardDiv);
+    createAndAppendEl("p", mostPopMovie.overview, movieCardDiv);
+    mainContainer.append(movieCardDiv);
+  }
+}
 
-function displayActor(movie) {}
+function displayActor(actor) {
+  mainContainer.innerHTML = "";
+  for (const actorList of actor) {
+    const movieCardDiv = document.createElement("div");
+    createAndAppendEl(
+      "img",
+      imgBase + imgBackdropSize + actorList_profile.path,
+      movieCardDiv
+    );
+    createAndAppendEl("h2", actorList.name, movieCardDiv);
+    createAndAppendEl(
+      "p",
+      "Known for:" + actorList.known_for_department,
+      movieCardDiv
+    );
+    for (const item of actorList) {
+      let movieTitle;
+      if (item.movieTitle === null) {
+        movieTitle = item.name;
+      } else {
+        movieTitle = item.movieTitle;
+      }
+      createAndAppendEl("p", item.media_type + ":" + movieTitle, movieCardDiv);
+    }
+    mainContainer.append(movieCardDiv);
+  }
+}
 function displayError() {}
 
 function createAndAppendEl(type, content, container) {
@@ -51,4 +91,4 @@ function createAndAppendEl(type, content, container) {
   return element;
 }
 
-export { displayMovie, displayActor, displayError, topRated };
+export { displayMovie, displayActor, displayError, topRated, mostPop };

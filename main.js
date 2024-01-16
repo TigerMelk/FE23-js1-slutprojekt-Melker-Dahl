@@ -3,6 +3,7 @@ import {
   displayMovie,
   displayActor,
   topRated,
+  mostPop,
   displayError,
 } from "./modules/display.js";
 const topRatedBtn = document.querySelector("#topRated");
@@ -37,7 +38,15 @@ topRatedBtn.addEventListener("click", (event) => {
 
   mainContainer.innerHTML = "";
 
-  fetchMovie("Top Rated").then(topRated);
+  fetchMovie("Top Rated").then(topRated).catch(displayError);
   console.log(event);
+  formEl.reset();
+});
+
+mostPopularBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  mainContainer.innerHTML = "";
+
+  fetchMovie("Most Popular").then(mostPop).catch(displayError);
   formEl.reset();
 });
