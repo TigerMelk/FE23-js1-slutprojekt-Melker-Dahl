@@ -24,7 +24,7 @@ async function fetchMovie(searchType, userInput) {
   const movieData = await response.json();
   if (response.ok && movieData.results.length !== 0) {
     return movieData;
-  } else if (movieData.result.length == 0) {
+  } else if (movieData.results.length == 0) {
     throw "No result found";
   } else if (response.status === 404) {
     throw 404;

@@ -118,7 +118,7 @@ function displayError(error) {
   mainContainer.innerHTML = "";
   const errorEl = document.createElement("h1");
   if (error === "No result found") {
-    errorEl.innerText = error + "Please try again..";
+    errorEl.innerText = error + ", Please try again..";
   } else {
     errorEl.innerText = "Somethings wrong, I can feel it";
   }
