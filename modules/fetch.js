@@ -17,11 +17,11 @@ async function fetchMovie(searchType, userInput) {
   } else if (searchType === "Most Popular") {
     url = "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1";
   } else {
-    url = "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1";
+    url = `https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1`;
   }
+  console.log(url);
   const response = await fetch(url, options);
   const movieData = await response.json();
-
   if (response.ok && movieData.results.length !== 0) {
     return movieData;
   } else if (movieData.result.length == 0) {

@@ -1,8 +1,8 @@
 // const mainDiv = document.querySelector("main");
 const mainContainer = document.querySelector("#mainContainer");
 
-const imgBase = `https://image.tmdb.org/t/p/`;
-const imgBackdropSize = "w400/";
+const imgBase = "https://image.tmdb.org/t/p/";
+const imgBackdropSize = "w300";
 
 function displayMovie(movie) {
   for (const movieList of movie.results) {
@@ -16,6 +16,33 @@ function displayMovie(movie) {
     createAndAppendEl("p", movieList.release_date, movieCardDiv);
     createAndAppendEl("p", movieList.overview, movieCardDiv);
 
+    mainContainer.append(movieCardDiv);
+  }
+}
+function displayActor(actor) {
+  mainContainer.innerHTML = "";
+  for (const actorList of actor.results) {
+    const movieCardDiv = document.createElement("div");
+    createAndAppendEl(
+      "img",
+      imgBase + imgBackdropSize + actorList.profile_path,
+      movieCardDiv
+    );
+    createAndAppendEl("h2", actorList.name, movieCardDiv);
+    createAndAppendEl(
+      "p",
+      "Known for:" + actorList.known_for_department,
+      movieCardDiv
+    );
+    // for (const item of actorList) {
+    //   let movieTitle;
+    //   if (item.movieTitle === null) {
+    //     movieTitle = item.name;
+    //   } else {
+    //     movieTitle = item.movieTitle;
+    //   }
+    //   createAndAppendEl("p", item.media_type + ":" + movieTitle, movieCardDiv);
+    // }
     mainContainer.append(movieCardDiv);
   }
 }
@@ -49,43 +76,16 @@ function mostPop(movie) {
   }
 }
 
-function displayActor(actor) {
-  mainContainer.innerHTML = "";
-  for (const actorList of actor) {
-    const movieCardDiv = document.createElement("div");
-    createAndAppendEl(
-      "img",
-      imgBase + imgBackdropSize + actorList_profile.path,
-      movieCardDiv
-    );
-    createAndAppendEl("h2", actorList.name, movieCardDiv);
-    createAndAppendEl(
-      "p",
-      "Known for:" + actorList.known_for_department,
-      movieCardDiv
-    );
-    for (const item of actorList) {
-      let movieTitle;
-      if (item.movieTitle === null) {
-        movieTitle = item.name;
-      } else {
-        movieTitle = item.movieTitle;
-      }
-      createAndAppendEl("p", item.media_type + ":" + movieTitle, movieCardDiv);
-    }
-    mainContainer.append(movieCardDiv);
-  }
-}
 function displayError(error) {
   mainContainer.innerHTML = "";
   const errorEl = document.createElement("h1");
   if (error === "No result found") {
-    errorEl = error + "Please try again..";
+    errorEl.innerText = error + "Please try again..";
   } else {
     errorEl.innerText = "Somethings wrong, I can feel it";
   }
-  console.log(displayError);
-  mainContainer.append("errorEl");
+  console.log(error);
+  mainContainer.append(errorEl);
 }
 
 function createAndAppendEl(type, content, container) {

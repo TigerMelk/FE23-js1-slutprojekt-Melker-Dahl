@@ -6,23 +6,23 @@ import {
   displayError,
 } from "./modules/display.js";
 import { fetchMovie } from "./modules/fetch.js";
+const mainContainer = document.querySelector("#mainContainer");
 const topRatedBtn = document.querySelector("#topRated");
 const mostPopularBtn = document.querySelector("#mostPopular");
 const formEl = document.querySelector("form");
-fetchMovie("Top Rated").then(topRated).catch(displayError);
+// fetchMovie("Top Rated").then(topRated).catch(displayError);
 // !
+
 formEl.addEventListener("submit", (event) => {
   event.preventDefault();
   mainContainer.innerHTML = "";
-
   const userInput = document.querySelector("#textInput").value;
   const searchType = document.querySelector(
     'input[type="radio"]:checked'
   ).value;
-
-  if (searchType === "Movie") {
+  if (searchType === "movie") {
     fetchMovie(searchType, userInput).then(displayMovie).catch(displayError);
-  } else if (searchType === "Person") {
+  } else if (searchType === "person") {
     fetchMovie(searchType, userInput).then(displayActor).catch(displayError);
   }
   formEl.reset();
@@ -48,4 +48,6 @@ mostPopularBtn.addEventListener("click", (event) => {
 
   fetchMovie("Most Popular").then(mostPop).catch(displayError);
   formEl.reset();
+
+  console.log(fetchMovie());
 });
