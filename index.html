@@ -5,13 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="icon" type="image/x-icon" href="#" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
     <script src="./lib/anime.js"></script>
     <script type="module" src="./main.js"></script>
     <title>TMDB</title>
   </head>
   <body>
     <header>
-      <h1>TMDB</h1>
+      <h1 id="logo">TMDB</h1>
       <nav>
         <form>
           <input
@@ -27,14 +33,14 @@
             id="radioMovie"
             checked
           />
-          <label for="radioMovie">Movie</label>
+          <label for="radioMovie" class="radioBtn">Movie</label>
           <input
             type="radio"
             name="movieOrPerson"
             value="person"
             id="radioPerson"
           />
-          <label for="radioPerson">Actor</label>
+          <label for="radioPerson" class="radioBtn">Actor</label>
           <button type="submit">Search</button>
 
           <button type="click" id="topRated" value="Top Rated">
@@ -48,14 +54,14 @@
     </header>
     <main>
       <div id="mainContainer"></div>
+      <footer>
+        <p>Website by Melker Dahl &copy;</p>
+        <div class="dmBtn">
+          <input type="checkbox" id="switch" /><label for="switch"
+            >Darkmode</label
+          >
+        </div>
+      </footer>
     </main>
-    <footer>
-      <p>site by Melker Dahl &copy;</p>
-      <div class="dmBtn">
-        <input type="checkbox" id="switch" /><label for="switch"
-          >Darkmode</label
-        >
-      </div>
-    </footer>
   </body>
 </html>

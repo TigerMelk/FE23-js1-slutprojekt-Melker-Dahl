@@ -11,9 +11,10 @@ const topRatedBtn = document.querySelector("#topRated");
 const mostPopularBtn = document.querySelector("#mostPopular");
 const formEl = document.querySelector("form");
 const body = document.querySelector("body");
+const logo = document.querySelector("#logo");
 // fetchMovie("Top Rated").then(topRated).catch(displayError);
 // !
-
+fetchMovie("Top Rated").then(topRated).catch(displayError);
 formEl.addEventListener("submit", (event) => {
   event.preventDefault();
   mainContainer.innerHTML = "";
@@ -53,6 +54,9 @@ mostPopularBtn.addEventListener("click", (event) => {
   console.log(fetchMovie());
 });
 
+logo.addEventListener("click", (event) => {
+  location.reload();
+});
 const darkMode = document.querySelector("#switch");
 darkMode.addEventListener("click", (event) => {
   event.preventDefault();
