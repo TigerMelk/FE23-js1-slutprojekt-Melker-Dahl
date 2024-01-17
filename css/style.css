@@ -7,7 +7,7 @@
 #mainContainer {
   width: 100vw;
   display: flex;
-  margin: 0 auto;
+  margin: 10px auto;
   gap: 3px;
   flex-wrap: wrap;
   justify-content: space-around;

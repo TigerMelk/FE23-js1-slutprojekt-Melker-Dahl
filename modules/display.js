@@ -19,6 +19,7 @@ function displayMovie(movie) {
     createAndAppendEl("p", movieList.overview, movieCardDiv);
 
     mainContainer.append(movieCardDiv);
+    anime(animeInfo);
   }
 }
 function displayActor(actor) {
@@ -47,13 +48,14 @@ function displayActor(actor) {
       createAndAppendEl("p", item.media_type + ": " + title, movieCardDiv);
     }
     mainContainer.append(movieCardDiv);
+    anime(animeInfo);
   }
 }
 
 function topRated(movie) {
   for (const topRatedMovie of movie.results.splice(10)) {
     const movieCardDiv = document.createElement("div");
-    // movieCardDiv.classList.add("movieCard");
+    movieCardDiv.classList.add("movieCard");
 
     createAndAppendEl(
       "img",
@@ -82,6 +84,7 @@ function mostPop(movie) {
     createAndAppendEl("p", mostPopMovie.release_date, movieCardDiv);
     createAndAppendEl("p", mostPopMovie.overview, movieCardDiv);
     mainContainer.append(movieCardDiv);
+    anime(animeInfo);
   }
 }
 
@@ -109,13 +112,12 @@ function createAndAppendEl(type, content, container) {
   return element;
 }
 const animeInfo = {
-  targets: "#mainContainer div",
-  translateX: "20vw, 0",
-  easing: "linear",
+  targets: ".movieCard",
+  translateY: anime.stagger[(50, 0)],
   loop: true,
+  delay: anime.stagger(500, { from: "last" }),
   duration: 3000,
-  direction: "alternate",
-  delay: anime.stagger(100),
 };
+console.log(anime(animeInfo));
 
 export { displayMovie, displayActor, displayError, topRated, mostPop };
