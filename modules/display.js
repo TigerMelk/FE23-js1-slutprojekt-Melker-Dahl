@@ -31,18 +31,18 @@ function displayActor(actor) {
     createAndAppendEl("h2", actorList.name, movieCardDiv);
     createAndAppendEl(
       "p",
-      "Known for:" + actorList.known_for_department,
+      "Known for: " + actorList.known_for_department,
       movieCardDiv
     );
-    // for (const item of actorList) {
-    //   let movieTitle;
-    //   if (item.movieTitle === null) {
-    //     movieTitle = item.name;
-    //   } else {
-    //     movieTitle = item.movieTitle;
-    //   }
-    //   createAndAppendEl("p", item.media_type + ":" + movieTitle, movieCardDiv);
-    // }
+    for (const item of actorList.known_for) {
+      let title;
+      if (item.title == null) {
+        title = item.name;
+      } else {
+        title = item.title;
+      }
+      createAndAppendEl("p", item.media_type + ":" + title, movieCardDiv);
+    }
     mainContainer.append(movieCardDiv);
   }
 }
