@@ -51,3 +51,5 @@ mostPopularBtn.addEventListener("click", (event) => {
 
   console.log(fetchMovie());
 });
+
+console.log(anime());

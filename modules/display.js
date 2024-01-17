@@ -7,6 +7,8 @@ const imgBackdropSize = "w300";
 function displayMovie(movie) {
   for (const movieList of movie.results) {
     const movieCardDiv = document.createElement("div");
+    movieCardDiv.classList.add("movieCard");
+
     createAndAppendEl(
       "img",
       imgBase + imgBackdropSize + movieList.poster_path,
@@ -23,6 +25,7 @@ function displayActor(actor) {
   mainContainer.innerHTML = "";
   for (const actorList of actor.results) {
     const movieCardDiv = document.createElement("div");
+    movieCardDiv.classList.add("movieCard");
     createAndAppendEl(
       "img",
       imgBase + imgBackdropSize + actorList.profile_path,
@@ -41,14 +44,17 @@ function displayActor(actor) {
       } else {
         title = item.title;
       }
-      createAndAppendEl("p", item.media_type + ":" + title, movieCardDiv);
+      createAndAppendEl("p", item.media_type + ": " + title, movieCardDiv);
     }
     mainContainer.append(movieCardDiv);
   }
 }
+
 function topRated(movie) {
   for (const topRatedMovie of movie.results.splice(10)) {
     const movieCardDiv = document.createElement("div");
+    // movieCardDiv.classList.add("movieCard");
+
     createAndAppendEl(
       "img",
       imgBase + imgBackdropSize + topRatedMovie.poster_path,
@@ -59,11 +65,14 @@ function topRated(movie) {
     createAndAppendEl("p", topRatedMovie.overview, movieCardDiv);
 
     mainContainer.append(movieCardDiv);
+    anime(animeInfo);
   }
 }
 function mostPop(movie) {
   for (const mostPopMovie of movie.results.splice(10)) {
     const movieCardDiv = document.createElement("div");
+    movieCardDiv.classList.add("movieCard");
+
     createAndAppendEl(
       "img",
       imgBase + imgBackdropSize + mostPopMovie.poster_path,
@@ -99,5 +108,14 @@ function createAndAppendEl(type, content, container) {
   }
   return element;
 }
+const animeInfo = {
+  targets: "#mainContainer div",
+  translateX: "20vw, 0",
+  easing: "linear",
+  loop: true,
+  duration: 3000,
+  direction: "alternate",
+  delay: anime.stagger(100),
+};
 
 export { displayMovie, displayActor, displayError, topRated, mostPop };

@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+}
+:root {
+  --primary-color: #fff444;
+}
+#mainContainer {
+  width: 100vw;
+  display: flex;
+  margin: 0 auto;
+  gap: 3px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  /* align-items: center; */
+}
+#mainContainer div {
+  width: 300px;
+  background-color: var(--primary-color);
+  padding: 10px;
+  border-radius: 2vh;
+}
