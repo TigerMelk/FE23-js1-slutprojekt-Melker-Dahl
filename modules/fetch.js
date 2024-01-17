@@ -19,7 +19,6 @@ async function fetchMovie(searchType, userInput) {
   } else {
     url = `https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1`;
   }
-  console.log(url);
   const response = await fetch(url, options);
   const movieData = await response.json();
   if (response.ok && movieData.results.length !== 0) {

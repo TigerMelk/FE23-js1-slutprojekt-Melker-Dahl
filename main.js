@@ -28,9 +28,6 @@ formEl.addEventListener("submit", (event) => {
     fetchMovie(searchType, userInput).then(displayActor).catch(displayError);
   }
   formEl.reset();
-  console.log(userInput);
-  console.log(searchType);
-  console.log(fetchMovie());
 });
 // !
 topRatedBtn.addEventListener("click", (event) => {
@@ -39,7 +36,6 @@ topRatedBtn.addEventListener("click", (event) => {
   mainContainer.innerHTML = "";
 
   fetchMovie("Top Rated").then(topRated).catch(displayError);
-  console.log(fetchMovie());
 
   formEl.reset();
 });
@@ -50,8 +46,6 @@ mostPopularBtn.addEventListener("click", (event) => {
 
   fetchMovie("Most Popular").then(mostPop).catch(displayError);
   formEl.reset();
-
-  console.log(fetchMovie());
 });
 
 logo.addEventListener("click", (event) => {

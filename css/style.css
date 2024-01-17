@@ -24,6 +24,9 @@ label:hover {
   cursor: pointer;
   font-weight: 500;
 }
+body {
+  background-color: var(--primary-color);
+}
 header {
   height: 10vh;
   padding: 10px;
@@ -58,7 +61,6 @@ form > button {
   gap: 8px;
   flex-wrap: wrap;
   justify-content: space-around;
-  background-color: var(--primary-color);
 }
 #mainContainer div {
   width: 300px;
