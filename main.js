@@ -10,6 +10,7 @@ const mainContainer = document.querySelector("#mainContainer");
 const topRatedBtn = document.querySelector("#topRated");
 const mostPopularBtn = document.querySelector("#mostPopular");
 const formEl = document.querySelector("form");
+const body = document.querySelector("body");
 // fetchMovie("Top Rated").then(topRated).catch(displayError);
 // !
 
@@ -50,4 +51,10 @@ mostPopularBtn.addEventListener("click", (event) => {
   formEl.reset();
 
   console.log(fetchMovie());
+});
+
+const darkMode = document.querySelector("#switch");
+darkMode.addEventListener("click", (event) => {
+  event.preventDefault();
+  body.classList.toggle("darkMode");
 });

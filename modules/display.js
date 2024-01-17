@@ -5,15 +5,23 @@ const imgBase = "https://image.tmdb.org/t/p/";
 const imgBackdropSize = "w300";
 
 function displayMovie(movie) {
+  const footer = document.querySelector("footer");
+  footer.classList.add("footerPosition");
   for (const movieList of movie.results) {
     const movieCardDiv = document.createElement("div");
     movieCardDiv.classList.add("movieCard");
+    const moviePoster = movieList.poster_path;
+    if (moviePoster !== null) {
+      createAndAppendEl(
+        "img",
+        imgBase + imgBackdropSize + moviePoster,
+        movieCardDiv
+      );
+    } else {
+      const noImgFile = "./assets/no-img.svg";
+      noImage(movieCardDiv, noImgFile);
+    }
 
-    createAndAppendEl(
-      "img",
-      imgBase + imgBackdropSize + movieList.poster_path,
-      movieCardDiv
-    );
     createAndAppendEl("h2", movieList.title, movieCardDiv);
     createAndAppendEl("p", movieList.release_date, movieCardDiv);
     createAndAppendEl("p", movieList.overview, movieCardDiv);
@@ -24,14 +32,22 @@ function displayMovie(movie) {
 }
 function displayActor(actor) {
   mainContainer.innerHTML = "";
+  const footer = document.querySelector("footer");
+  footer.classList.add("footerPosition");
   for (const actorList of actor.results) {
     const movieCardDiv = document.createElement("div");
     movieCardDiv.classList.add("movieCard");
-    createAndAppendEl(
-      "img",
-      imgBase + imgBackdropSize + actorList.profile_path,
-      movieCardDiv
-    );
+    const actorPoster = actorList.profile_path;
+    if (actorPoster !== null) {
+      createAndAppendEl(
+        "img",
+        imgBase + imgBackdropSize + actorPoster,
+        movieCardDiv
+      );
+    } else {
+      const noImgFile = "./assets/no-img.svg";
+      noImage(movieCardDiv, noImgFile);
+    }
     createAndAppendEl("h2", actorList.name, movieCardDiv);
     createAndAppendEl(
       "p",
@@ -45,7 +61,7 @@ function displayActor(actor) {
       } else {
         title = item.title;
       }
-      createAndAppendEl("p", item.media_type + ": " + title, movieCardDiv);
+      createAndAppendEl("ul", item.media_type + ": " + title, movieCardDiv);
     }
     mainContainer.append(movieCardDiv);
     anime(animeInfo);
@@ -53,15 +69,23 @@ function displayActor(actor) {
 }
 
 function topRated(movie) {
+  const footer = document.querySelector("footer");
+  footer.classList.add("footerPosition");
   for (const topRatedMovie of movie.results.splice(10)) {
     const movieCardDiv = document.createElement("div");
     movieCardDiv.classList.add("movieCard");
 
-    createAndAppendEl(
-      "img",
-      imgBase + imgBackdropSize + topRatedMovie.poster_path,
-      movieCardDiv
-    );
+    const moviePoster = topRatedMovie.poster_path;
+    if (moviePoster !== null) {
+      createAndAppendEl(
+        "img",
+        imgBase + imgBackdropSize + moviePoster,
+        movieCardDiv
+      );
+    } else {
+      const noImgFile = "./assets/no-img.svg";
+      noImage(movieCardDiv, noImgFile);
+    }
     createAndAppendEl("h2", topRatedMovie.title, movieCardDiv);
     createAndAppendEl("p", topRatedMovie.release_date, movieCardDiv);
     createAndAppendEl("p", topRatedMovie.overview, movieCardDiv);
@@ -71,6 +95,8 @@ function topRated(movie) {
   }
 }
 function mostPop(movie) {
+  const footer = document.querySelector("footer");
+  footer.classList.add("footerPosition");
   for (const mostPopMovie of movie.results.splice(10)) {
     const movieCardDiv = document.createElement("div");
     movieCardDiv.classList.add("movieCard");
@@ -111,6 +137,13 @@ function createAndAppendEl(type, content, container) {
   }
   return element;
 }
+function noImage(movieCardDiv, noImgFile) {
+  const noImgEl = document.createElement("img");
+  noImgEl.src = noImgFile;
+  noImgEl.classList.add("noImgStyle");
+  movieCardDiv.append(noImgEl);
+}
+
 const animeInfo = {
   targets: ".movieCard",
   translateY: anime.stagger[(50, 0)],

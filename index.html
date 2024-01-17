@@ -11,46 +11,51 @@
   </head>
   <body>
     <header>
-      <h1>titel</h1>
+      <h1>TMDB</h1>
       <nav>
-        <div>
-          <form>
-            <input
-              type="text"
-              id="textInput"
-              required
-              placeholder="search here..."
-            />
-            <input
-              type="radio"
-              name="movieOrPerson"
-              value="movie"
-              id="radioMovie"
-              checked
-            />
-            <label for="radioMovie">Movie</label>
-            <input
-              type="radio"
-              name="movieOrPerson"
-              value="person"
-              id="radioPerson"
-            />
-            <label for="radioPerson">Actor</label>
-            <button type="submit">Search</button>
+        <form>
+          <input
+            type="text"
+            id="textInput"
+            required
+            placeholder="search here..."
+          />
+          <input
+            type="radio"
+            name="movieOrPerson"
+            value="movie"
+            id="radioMovie"
+            checked
+          />
+          <label for="radioMovie">Movie</label>
+          <input
+            type="radio"
+            name="movieOrPerson"
+            value="person"
+            id="radioPerson"
+          />
+          <label for="radioPerson">Actor</label>
+          <button type="submit">Search</button>
 
-            <button type="click" id="topRated" value="Top Rated">
-              Top Rated
-            </button>
-            <button type="click" id="mostPopular" value="Most Popular">
-              Most Popular
-            </button>
-          </form>
-        </div>
+          <button type="click" id="topRated" value="Top Rated">
+            Top Rated
+          </button>
+          <button type="click" id="mostPopular" value="Most Popular">
+            Most Popular
+          </button>
+        </form>
       </nav>
     </header>
     <main>
       <div id="mainContainer"></div>
     </main>
-    <footer></footer>
+    <footer>
+      <p>site by Melker Dahl &copy;</p>
+      <div class="dmBtn">
+        <input type="checkbox" id="switch" /><label for="switch"
+          >Darkmode</label
+        >
+      </div>
+    </footer>
   </body>
 </html>

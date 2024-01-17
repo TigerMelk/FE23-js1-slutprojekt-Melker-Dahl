@@ -1,21 +1,80 @@
 * {
   margin: 0;
 }
+button:hover {
+  cursor: pointer;
+}
+label:hover {
+  cursor: pointer;
+}
 :root {
   --primary-color: #fff444;
+}
+.darkMode {
+  --primary-color: #ff4333;
+}
+header {
+  height: 10vh;
+  padding: 10px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  background-color: var(--primary-color);
+}
+form > input,
+button,
+label {
+  margin: 2px;
+}
+form > input {
+  background-color: var(--primary-color);
+  color: var(--primary-color);
+}
+form > button {
+  background-color: var(--primary-color);
+  color: var(--primary-color);
 }
 #mainContainer {
   width: 100vw;
   display: flex;
   margin: 10px auto;
-  gap: 3px;
+  gap: 8px;
   flex-wrap: wrap;
   justify-content: space-around;
-  /* align-items: center; */
+  background-color: var(--primary-color);
 }
 #mainContainer div {
   width: 300px;
+  max-height: 690px;
+  overflow: auto;
   background-color: var(--primary-color);
   padding: 10px;
   border-radius: 2vh;
+}
+
+footer {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  background-color: lightblue;
+}
+.footerPosition {
+  position: fixed;
+}
+
+.noImgStyle {
+  width: 100%;
+}
+
+.dmBtn > label {
+  background-color: var(--primary-color);
+  padding: 4px;
+  border-radius: 2vh;
+}
+#switch {
+  display: none;
 }
