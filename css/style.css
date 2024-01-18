@@ -52,7 +52,6 @@ form > button {
   color: var(--text-color);
   border-radius: 1vh;
 }
-
 #mainContainer {
   width: 100vw;
   display: flex;

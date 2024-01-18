@@ -1,3 +1,7 @@
+/*
+ * Module for fetching all info depending on users selected searchtype
+ */
+
 const BAERER_KEY =
   "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1MzcyZWNiZDdhZjNiNWFiMWFjNTNkYTRjN2VmMzA4YyIsInN1YiI6IjY1YTU5OTg0ODI4OWEwMDBjNmFkYjk0MSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.NfXn4XR0kfhsYz43CpaOPu69w7V5cS-ctYBEV_19NHA";
 const options = {

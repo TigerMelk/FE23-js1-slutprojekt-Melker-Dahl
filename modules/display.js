@@ -1,11 +1,12 @@
-// const mainDiv = document.querySelector("main");
+/*
+ * Module for displaying fetched information from API
+ */
 const mainContainer = document.querySelector("#mainContainer");
-
 const imgBase = "https://image.tmdb.org/t/p/";
 const imgBackdropSize = "w300";
+const footer = document.querySelector("footer");
 
 function displayMovie(movie) {
-  const footer = document.querySelector("footer");
   footer.classList.add("footerPosition");
   for (const movieList of movie.results) {
     const movieCardDiv = document.createElement("div");
@@ -21,14 +22,11 @@ function displayMovie(movie) {
       const noImgFile = "./assets/no-img.svg";
       noImage(movieCardDiv, noImgFile);
     }
-
     createAndAppendEl("h2", movieList.title, movieCardDiv);
     createAndAppendEl("p", movieList.release_date, movieCardDiv);
     createAndAppendEl("p", movieList.overview, movieCardDiv);
-
     mainContainer.append(movieCardDiv);
-    let movieCardsAnime = document.querySelectorAll(".movieCard");
-
+    const movieCardsAnime = document.querySelectorAll(".movieCard");
     anime({
       targets: movieCardsAnime,
       translateY: [200, 0],
@@ -39,7 +37,6 @@ function displayMovie(movie) {
 }
 function displayActor(actor) {
   mainContainer.innerHTML = "";
-  const footer = document.querySelector("footer");
   footer.classList.add("footerPosition");
   for (const actorList of actor.results) {
     const movieCardDiv = document.createElement("div");
@@ -71,8 +68,7 @@ function displayActor(actor) {
       createAndAppendEl("ul", item.media_type + ": " + title, movieCardDiv);
     }
     mainContainer.append(movieCardDiv);
-    let movieCardsAnime = document.querySelectorAll(".movieCard");
-
+    const movieCardsAnime = document.querySelectorAll(".movieCard");
     anime({
       targets: movieCardsAnime,
       translateY: [200, 0],
@@ -83,7 +79,6 @@ function displayActor(actor) {
 }
 
 function topRated(movie) {
-  const footer = document.querySelector("footer");
   footer.classList.add("footerPosition");
   for (const topRatedMovie of movie.results.splice(10)) {
     const movieCardDiv = document.createElement("div");
@@ -105,7 +100,7 @@ function topRated(movie) {
     createAndAppendEl("p", topRatedMovie.overview, movieCardDiv);
 
     mainContainer.append(movieCardDiv);
-    let movieCardsAnime = document.querySelectorAll(".movieCard");
+    const movieCardsAnime = document.querySelectorAll(".movieCard");
 
     anime({
       targets: movieCardsAnime,
@@ -116,7 +111,6 @@ function topRated(movie) {
   }
 }
 function mostPop(movie) {
-  const footer = document.querySelector("footer");
   footer.classList.add("footerPosition");
   for (const mostPopMovie of movie.results.splice(10)) {
     const movieCardDiv = document.createElement("div");
@@ -131,8 +125,7 @@ function mostPop(movie) {
     createAndAppendEl("p", mostPopMovie.release_date, movieCardDiv);
     createAndAppendEl("p", mostPopMovie.overview, movieCardDiv);
     mainContainer.append(movieCardDiv);
-    let movieCardsAnime = document.querySelectorAll(".movieCard");
-
+    const movieCardsAnime = document.querySelectorAll(".movieCard");
     anime({
       targets: movieCardsAnime,
       translateY: [200, 0],
@@ -157,7 +150,6 @@ function displayError(error) {
 function createAndAppendEl(type, content, container) {
   const element = document.createElement(type);
   container.append(element);
-
   if (type === "img") {
     element.src = content;
   } else {
