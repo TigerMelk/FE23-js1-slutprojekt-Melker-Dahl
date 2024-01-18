@@ -27,7 +27,14 @@ function displayMovie(movie) {
     createAndAppendEl("p", movieList.overview, movieCardDiv);
 
     mainContainer.append(movieCardDiv);
-    anime(animeInfo);
+    let movieCardsAnime = document.querySelectorAll(".movieCard");
+
+    anime({
+      targets: movieCardsAnime,
+      translateY: [200, 0],
+      delay: anime.stagger(200, { from: "first" }),
+      duration: 700,
+    });
   }
 }
 function displayActor(actor) {
@@ -64,7 +71,14 @@ function displayActor(actor) {
       createAndAppendEl("ul", item.media_type + ": " + title, movieCardDiv);
     }
     mainContainer.append(movieCardDiv);
-    anime(animeInfo);
+    let movieCardsAnime = document.querySelectorAll(".movieCard");
+
+    anime({
+      targets: movieCardsAnime,
+      translateY: [200, 0],
+      delay: anime.stagger(200, { from: "first" }),
+      duration: 700,
+    });
   }
 }
 
@@ -91,7 +105,14 @@ function topRated(movie) {
     createAndAppendEl("p", topRatedMovie.overview, movieCardDiv);
 
     mainContainer.append(movieCardDiv);
-    anime(animeInfo);
+    let movieCardsAnime = document.querySelectorAll(".movieCard");
+
+    anime({
+      targets: movieCardsAnime,
+      translateY: [200, 0],
+      delay: anime.stagger(200, { from: "first" }),
+      duration: 700,
+    });
   }
 }
 function mostPop(movie) {
@@ -110,7 +131,14 @@ function mostPop(movie) {
     createAndAppendEl("p", mostPopMovie.release_date, movieCardDiv);
     createAndAppendEl("p", mostPopMovie.overview, movieCardDiv);
     mainContainer.append(movieCardDiv);
-    anime(animeInfo);
+    let movieCardsAnime = document.querySelectorAll(".movieCard");
+
+    anime({
+      targets: movieCardsAnime,
+      translateY: [200, 0],
+      delay: anime.stagger(200, { from: "first" }),
+      duration: 700,
+    });
   }
 }
 
@@ -143,14 +171,5 @@ function noImage(movieCardDiv, noImgFile) {
   noImgEl.classList.add("noImgStyle");
   movieCardDiv.append(noImgEl);
 }
-
-const animeInfo = {
-  targets: ".movieCard",
-  translateY: anime.stagger[(50, 0)],
-  loop: true,
-  delay: anime.stagger(500, { from: "last" }),
-  duration: 3000,
-};
-console.log(anime(animeInfo));
 
 export { displayMovie, displayActor, displayError, topRated, mostPop };
